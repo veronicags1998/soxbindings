@@ -32,22 +32,11 @@ ext_modules = [
             get_pybind_include(),
             f"{SOX_PREFIX}/include",
         ],
-% git diff setup.py
-diff --git a/setup.py b/setup.py
-index 3ee9d8c..8b2c894 100644
---- a/setup.py
-+++ b/setup.py
-@@ -27,6 +27,10 @@ ext_modules = [
-         include_dirs=[
-             # Path to pybind11 headers
-             get_pybind_include(),
-+            "/usr/local/include",
-+        ],
-+        library_dirs=[
-+            "/usr/local/lib",
-         ],
-         language='c++'
-     ),
+        library_dirs=[
+            f"{SOX_PREFIX}/lib",
+        ],
+        language='c++'
+    ),
 ]
 
 
