@@ -27,6 +27,10 @@ ext_modules = [
         include_dirs=[
             # Path to pybind11 headers
             get_pybind_include(),
+            "/opt/homebrew/include/",
+        ],
+        library_dirs=[
+            "/opt/homebrew/lib/",
         ],
         language='c++'
     ),
