@@ -2,6 +2,9 @@ from setuptools import setup, Extension
 from setuptools.command.build_ext import build_ext
 import sys
 import setuptools
+import subprocess 
+
+SOX_PREFIX = subprocess.check_output(['brew', '--prefix', 'sox'], encoding='utf8').strip()
 
 __version__ = '1.2.3'
 
@@ -27,10 +30,10 @@ ext_modules = [
         include_dirs=[
             # Path to pybind11 headers
             get_pybind_include(),
-            "/opt/homebrew/include/",
+            f"{SOX_PREFIX}/include",
         ],
         library_dirs=[
-            "/opt/homebrew/lib/",
+            f"{SOX_PREFIX}/lib",
         ],
         language='c++'
     ),
